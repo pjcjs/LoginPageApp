@@ -146,7 +146,7 @@ public class UserService {
         return isValid;
     }
 
-    //6-adım:password doğrulama:ÖDEVV
+    //6-adım:password doğrulama
     private boolean validatePassword(String password){
         return true;
     }
