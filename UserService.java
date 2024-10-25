@@ -147,9 +147,40 @@ public class UserService {
     }
 
     //6-adım:password doğrulama
-    private boolean validatePassword(String password){
-        return true;
+   private boolean validatePassword(String password) {
+    // Check if password contains spaces
+    if (password.contains(" ")) {
+        return false;
     }
+    // Check if password length is at least 6 characters
+    if (password.length() < 6) {
+        return false;
+    }
+
+    // Initialize flags for each required character type
+    boolean hasLower = false;
+    boolean hasUpper = false;
+    boolean hasDigit = false;
+    boolean hasSymbol = false;
+
+    // Iterate over each character in the password
+    for (int i = 0; i < password.length(); i++) {
+        char c = password.charAt(i);
+        if (Character.isLowerCase(c)) {
+            hasLower = true;
+        } else if (Character.isUpperCase(c)) {
+            hasUpper = true;
+        } else if (Character.isDigit(c)) {
+            hasDigit = true;
+        } else {
+            // If it's not a letter or digit, it's a symbol
+            hasSymbol = true;
+        }
+    }
+
+    // Check if all required character types are present
+    return hasLower && hasUpper && hasDigit && hasSymbol;
+}
 
 
 
