@@ -103,7 +103,7 @@ public class UserService {
 
 
 
-    //5-adım:email doğrulama:ÖDEVV
+    //5-adım:email doğrulama:
     private boolean validateEmail(String email){
         boolean isValid=true;
 
